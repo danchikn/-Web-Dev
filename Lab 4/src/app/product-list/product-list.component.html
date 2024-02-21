@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    <div class="container">
+        <h2 class="title">Smart Watchs</h2>
+        <div *ngFor="let product of products" class="product-container">
+            <img src="{{product.imageUrl}}" alt="product image">
+            <h3 class="product-title">
+                <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+                    {{product.name}}
+                </a>
+            </h3>
+            <p *ngIf="product.price" class="price">
+                Price: {{product.price}} ₸
+            </p>
+            <button class="share-btn" (click)="shareTelegram(product.link)">Отправить в Telegram</button>
+            <button class="share-btn_2" (click)="shareWhatsApp(product.link)">Отправить в WhatsApp</button>
+        </div>
+    </div>
+    
+</body>
+</html>
