@@ -54,14 +54,22 @@
         var inputField = document.getElementById("todo-input");
         var inputValue = inputField.value.trim();
         if (inputValue === "") {
+<<<<<<< HEAD
             alert("New Task");
+=======
+            alert("Please enter a valid todo item.");
+>>>>>>> 6a8e7cc95aa414f705529e9a3cb2fe009e387226
             return;
         }
         
         var todoList = document.getElementById("todo-list");
         var li = document.createElement("li");
         li.className = "todo-item";
+<<<<<<< HEAD
              
+=======
+        
+>>>>>>> 6a8e7cc95aa414f705529e9a3cb2fe009e387226
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.addEventListener("click", function() {

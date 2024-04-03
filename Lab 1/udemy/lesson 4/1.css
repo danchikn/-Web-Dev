@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 	font-family: 'Roboto', sans-serif;
 }
@@ -22,4 +23,30 @@ body {
 	display: table-cell;
 	vertical-align: middle;
 	height: 240px;
+=======
+body {
+	font-family: 'Roboto', sans-serif;
+}
+.container {
+	display: flex;
+	flex-wrap: wrap;
+}
+.menu {
+	width: 15%;
+}
+.portfolio {
+	width: 85%;
+}
+.item {
+	width: 100%;
+	clear: both;
+}
+.item img {
+	float: left
+}
+.item span {
+	display: table-cell;
+	vertical-align: middle;
+	height: 240px;
+>>>>>>> 6a8e7cc95aa414f705529e9a3cb2fe009e387226
 }
