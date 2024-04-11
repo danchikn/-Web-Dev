@@ -1,3 +1,4 @@
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -33,7 +34,7 @@ class ComVacanList(APIView):
     def get(self,request,id):
         company = Company.objects.get(pk=id)
         vacancies = Vacancy.objects.filter(company=company)
-        serializer = VacancySerializer(vacancies)
+        serializer = VacancySerializer(vacancies, many=True)
         return Response(serializer.data)
 
 class VacancyTopTen(APIView):
@@ -42,4 +43,15 @@ class VacancyTopTen(APIView):
         serializer = VacancySerializer(ten_top, many=True)
         return Response(serializer.data)
 
+@api_view(['DELETE'])
+def companyDelete(request, id):
+    company = Company.objects.get(pk = id)
+    company.delete()
+    return Response('Company successfully deleted!')
+
+@api_view(['DELETE'])
+def vacancyDelete(request, id):
+    vacancy = Vacancy.objects.get(pk = id)
+    vacancy.delete()
+    return Response('Vacancy succesfully deleted!')
 
