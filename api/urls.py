@@ -1,14 +1,11 @@
 from django.urls import path
-from . import views
-from .views import CompanyList,CompanyDetail,ComVacanList,VacancyList,VacancyDetail,VacancyTopTen
+from .views_company import CompanyCRUD, CompaniesCRUD
+from .views_vacancy import vacancy_list, vacancy_detail, vacancy_company
 
 urlpatterns = [
-    path('companies/', CompanyList.as_view()),
-    path('company/<int:id>/', CompanyDetail.as_view()),
-    path('vacancies/', VacancyList.as_view()),
-    path('vacancy/<int:id>/', VacancyDetail.as_view()),
-    path('company/<int:id>/vacancies/',ComVacanList.as_view()),
-    path('vacancies/ten_top/', VacancyTopTen.as_view()),
-    path('companies/delete/<int:id>/', views.companyDelete, name="companiesDelete"),
-    path('vacancies/delete/<int:id>/', views.vacancyDelete, name="vacaciesDelete"),
+    path('companies/', CompaniesCRUD.as_view()),
+    path('companies/<int:pk>/', CompanyCRUD.as_view()),
+    path('companies/<int:id>/vacancies/', vacancy_company),
+    path('vacancies/', vacancy_list),
+    path('vacancies/<int:id>/', vacancy_detail),
 ]
